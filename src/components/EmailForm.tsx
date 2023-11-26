@@ -23,13 +23,16 @@ export default function Form({ onSubmit }: { onSubmit: () => void }) {
   }, [setFocus]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4 w-full"
+    >
       <Input
         id="email"
         register={register}
         placeholder="Enter your email"
         error={errors.email?.message as string}
-        label="Label"
+        label="Email"
       />
       <Input id="submit" type="submit" value="Next" />
     </form>

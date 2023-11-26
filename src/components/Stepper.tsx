@@ -8,11 +8,13 @@ function Step({ number, text, active }: StepProps) {
       <div
         className={`${
           active ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-400"
-        } h-8 w-8 rounded-full flex items-center justify-center`}
+        } text-xs h-8 w-8 rounded-full flex items-center justify-center`}
       >
         {number}
       </div>
-      <div className={`${active ? "text-black" : "text-gray-400"}`}>{text}</div>
+      <div className={`${active ? "text-black" : "text-gray-400"} text-xs`}>
+        {text}
+      </div>
     </div>
   );
 }
@@ -35,7 +37,7 @@ export default function Stepper({
         return (
           <Step
             key={index}
-            number={index}
+            number={index + 1}
             text={steps[step]}
             active={index <= activeStepIndex}
           />

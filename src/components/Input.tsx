@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 
 const input = tv({
   slots: {
-    text: "border border-slate-300 rounded-md h-11 p-3 text-black focus:outline focus:outline-blue-500 focus:outline-2",
+    text: "w-full border border-slate-300 rounded-md h-11 p-3 text-black focus:outline focus:outline-blue-500 focus:outline-2",
   },
   variants: {
     color: {
@@ -30,7 +30,7 @@ const Input = (props: {
   });
   if (props.type !== "submit" && props.register)
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col items-start gap-1 w-full">
         <label htmlFor={props.id}>{props.label}</label>
         <input
           id={props.id}
