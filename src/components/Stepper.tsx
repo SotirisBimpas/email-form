@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 type StepProps = { number: number; text: string; active: boolean };
 
 function Step({ number, text, active }: StepProps) {
@@ -22,12 +24,21 @@ export default function Stepper({
   steps: Record<string, string>;
   activeStep: string;
 }) {
+  const activeStepIndex = useMemo(
+    () => Object.keys(steps).findIndex((step) => step === activeStep),
+    [activeStep, steps]
+  );
+
   return (
     <div className="flex items-center w-96">
       {Object.keys(steps).map((step, index) => {
-        const active = activeStep === step;
         return (
-          <Step key={index} number={index} text={steps[step]} active={active} />
+          <Step
+            key={index}
+            number={index}
+            text={steps[step]}
+            active={index <= activeStepIndex}
+          />
         );
       })}
     </div>
