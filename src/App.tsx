@@ -1,5 +1,5 @@
 function App() {
-  return <p>App</p>;
+  return <h1 className="text-3xl font-bold underline">Sing in</h1>;
 }
 
 export default App;
