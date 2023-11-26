@@ -10,7 +10,7 @@ function Step({ number, text, active }: StepProps) {
       >
         {number}
       </div>
-      <div>{text}</div>
+      <div className={`${active ? "text-black" : "text-gray-400"}`}>{text}</div>
     </div>
   );
 }
@@ -26,7 +26,9 @@ export default function Stepper({
     <div className="flex items-center w-96">
       {Object.keys(steps).map((step, index) => {
         const active = activeStep === step;
-        return <Step key={index} number={index} text={step} active={active} />;
+        return (
+          <Step key={index} number={index} text={steps[step]} active={active} />
+        );
       })}
     </div>
   );
